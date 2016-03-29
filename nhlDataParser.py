@@ -104,10 +104,22 @@ playersWithTooFewGames(deleting)
 deletePlayers(deleting)
 addBasicStats()
 
-for player in playerData:
-	print playerData[player]
-print len(playerDict)
+forwardList = []
+defenseList = []
+for p in playerData:
+	player = playerData[p]
+	if len(player) >= 4:
+		print player
+		for year in player:
+			if (player[year]['Pos'] == 'D'):
+				defenseList.append(player)
+			else:
+				forwardList.append(player)
+			break
 print len(playerData)
+print len(forwardList)
+print len(defenseList)
+
 '''
 PlayerData[playerName][Year] = attributes
 
