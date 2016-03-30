@@ -22,11 +22,10 @@ def gamePlayedBefore2008():
 				p = row['Player']
 				if (p in playerDict):
 					playerDict[p] += gamesPlayed
-					playerData[p][year] = row
 				elif (age < 24):
 					playerDict[p] = gamesPlayed
 					playerData[p] = {}
-					playerData[p][year] = row
+
 			year += 1
 			if year == 2005:
 				year += 1
