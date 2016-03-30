@@ -1,8 +1,9 @@
 from nhlDataParser import process_players
 import skfuzzy
 import numpy
+import random
 
-features = ["Goals vs Assists", "Takeaways v Giveaways", "Corsi For %", "Points/game", "Penalties/game", "Hits/game", "Blocks/game"]
+features = ["Goals vs Assists", "Takeaways v Giveaways", "Corsi For %", "Points/game", "Penalties/game", "Hits/game"]# "Blocks/game"]
 
 def get_data_points(start, feature, data):
 	data_points = []
@@ -29,7 +30,7 @@ def get_data_points(start, feature, data):
 		data_points.append(feature(full_vector, maxf=max_features, minf=min_features))
 		names.append(full_vector['Player'])
 		players.append((feature(full_vector),feature(full_vector, maxf=max_features, minf=min_features)))
-	return numpy.transpose(numpy.array(data_points)), names, players, min_features, max_features
+	return numpy.transpose(numpy.array(data_points)), data_points, names, players, min_features, max_features
 
 def extract_forward_features(full_vector, maxf=None, minf=None):
 	# goals vs assists
@@ -51,9 +52,9 @@ def extract_forward_features(full_vector, maxf=None, minf=None):
 	h_v_g = float(full_vector['HIT'])/float(full_vector['GP'])
 
 	# blocks per game
-	b_v_g = float(full_vector['BLK'])/float(full_vector['GP'])
+	#b_v_g = float(full_vector['BLK'])/float(full_vector['GP'])
 
-	stat = [g_v_a, t_v_g, c_perc, p_v_g, pn_v_g, h_v_g, b_v_g]
+	stat = [g_v_a, t_v_g, c_perc, p_v_g, pn_v_g, h_v_g] #b_v_g]
 
 	if minf and maxf:
 		for i,s in enumerate(stat):
@@ -61,7 +62,7 @@ def extract_forward_features(full_vector, maxf=None, minf=None):
 
 	return stat
 
-def get_clustering(points, min_cluster, max_cluster, error=0.00005, iters=1000000):
+def get_clustering(points, data, min_cluster, max_cluster, error=0.00005, iters=1000000):
 	fpcs = []
 	cntrs = []
 	us = []
@@ -69,6 +70,12 @@ def get_clustering(points, min_cluster, max_cluster, error=0.00005, iters=100000
 	print max_cluster
 	for c in range(min_cluster,max_cluster + 1):
 		cntr, u, u0, d, jm, p, fpc = skfuzzy.cluster.cmeans(points, c, 2, error=error, maxiter=iters, init=None)
+		random.shuffle(data)
+		for i in range(10):
+			prev_u = u
+			cntr, u, u0, d, jm, p, fpc = skfuzzy.cluster.cmeans(numpy.transpose(numpy.array(data)), c, 2, error=error, maxiter=iters, init=prev_u)
+			random.shuffle(data)
+		cntr, u, u0, d, jm, p, fpc = skfuzzy.cluster.cmeans(points, c, 2, error=error, maxiter=iters, init=prev_u)
 		fpcs.append((c,fpc))
 		cntrs.append(cntr)
 		us.append(u)
@@ -82,10 +89,20 @@ def print_details(center, minf, maxf):
 	print line
 	print "-------------------------------------------------------------------"
 
-def test():
+def write_details(f, center, minf, maxf, i, players):
+	line = ""
+	for i,attr in enumerate(center):
+		val = attr * (maxf[i] - minf[i]) + minf[i]
+		line += features[i] + " " + str(val) + "\n"
+	f.write("Cluster" + str(i) + ":\n")
+	f.write(line)
+	f.write(str(players) + '\n')
+	f.write("-------------------------------------------------------------------\n")
+
+def cluster():
 	p,f,d = process_players()
-	data, names, players, minf, maxf = get_data_points(2, extract_forward_features, f)
-	c, fpc, u = get_clustering(data, 2, 12)
+	data, data_points, names, players, minf, maxf = get_data_points(2, extract_forward_features, f)
+	c, fpc, u = get_clustering(data, data_points, 2, 12)
 	clusters = []
 	g_names = []
 	g_players = []
@@ -100,6 +117,16 @@ def test():
 		g_players.append(groups_p)
 
 	return c, fpc, u, clusters, g_names, names, data, players, minf, maxf
+
+def do_clustering():
+	c, fpc, u, clusters, g_names, names, data, players, minf, maxf = cluster()
+	num_clusters = 7
+	part = u[num_clusters - 2]
+	part = numpy.transpose(part)
+	f = open('playstyle.csv','w')
+	for i,name in enumerate(names):
+		f.write('%s,%f,%f,%f,%f,%f,%f,%f\n' % (name, part[i][0], part[i][1], part[i][2], part[i][3], part[i][4], part[i][5], part[i][6]))
+	f.close()
 
 
 

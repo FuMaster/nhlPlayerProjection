@@ -1,0 +1,63 @@
+Cluster0:
+Goals vs Assists 0.797627230554
+Takeaways v Giveaways 10.5038603931
+Corsi For % 0.428095744149
+Points/game 0.800046883224
+Penalties/game 0.450248258583
+Hits/game 0.802187166044
+[(0, 'Derek Stepan'), (1, 'Nicklas Backstrom'), (7, 'Brad Marchand'), (22, 'Scottie Upshall'), (23, 'Logan Couture'), (24, 'Ben Smith'), (31, 'John Tavares'), (32, 'David Krejci'), (47, 'Loui Eriksson'), (62, 'David Desharnais'), (63, 'Tyler Seguin'), (65, 'Jordan Eberle'), (70, 'Evander Kane'), (71, 'Travis Zajac'), (78, 'Nikolai Kulemin'), (86, 'Bobby Ryan'), (89, 'Taylor Hall'), (93, 'Jonathan Toews'), (100, 'Anze Kopitar'), (103, 'Mason Raymond'), (121, 'P.A. Parenteau'), (134, 'Patrick Kane'), (148, 'Phil Kessel'), (150, 'Jake Dowell'), (151, 'Paul Stastny'), (157, 'Evgeni Malkin'), (169, 'Steven Stamkos'), (178, 'Wojtek Wolski'), (188, 'Chris Stewart'), (193, 'Jamie Benn'), (199, 'Joe Pavelski'), (200, 'David Jones'), (215, 'Tomas Fleischmann')]
+-------------------------------------------------------------------
+Cluster1:
+Goals vs Assists 0.896496261863
+Takeaways v Giveaways 11.1252879746
+Corsi For % 0.404042124593
+Points/game 0.283403302435
+Penalties/game 0.577636604919
+Hits/game 1.56279597537
+[(8, 'Dale Weise'), (9, 'Eric Tangradi'), (12, 'Milan Lucic'), (28, 'Brayden Schenn'), (35, 'Jay Beagle'), (46, 'Jeff Taffe'), (57, 'Jamie McGinn'), (66, 'Ryan Callahan'), (82, 'Jesse Joensuu'), (91, 'Vladimir Sobotka'), (107, 'James Sheppard'), (108, 'Brian Boyle'), (109, 'Frazer McLaren'), (117, 'Zach Boychuk'), (125, 'Kyle Chipchura'), (128, 'Liam Reddox'), (137, 'Eric Nystrom'), (138, 'James Wright'), (139, 'Rod Pelley'), (152, 'Darroll Powe'), (166, 'Tim Kennedy'), (171, 'Maxim Lapierre'), (182, 'John McCarthy'), (185, 'Justin Abdelkader'), (189, 'Tim Brent'), (196, 'Kevin Porter'), (203, 'Joe Colborne'), (205, 'Darren Helm'), (214, 'Tommy Wingels'), (218, 'Matt Beleskey')]
+-------------------------------------------------------------------
+Cluster2:
+Goals vs Assists 0.96916905488
+Takeaways v Giveaways 10.0891867808
+Corsi For % 0.412664735316
+Points/game 0.393677950497
+Penalties/game 0.504838078128
+Hits/game 1.26867278313
+[(3, 'Troy Brouwer'), (10, 'Nazem Kadri'), (17, 'Nigel Dawes'), (26, 'Benn Ferriero'), (34, 'Magnus Paajarvi'), (38, "Patrick O'Sullivan"), (51, 'Matt Calvert'), (55, 'Matt Frattin'), (56, 'Bryan Bickell'), (64, 'Jeff Tambellini'), (69, 'Mats Zuccarello'), (88, 'Kyle Palmieri'), (92, 'Guillaume Latendresse'), (95, 'Devin Setoguchi'), (96, 'Clarke MacArthur'), (97, 'Mathieu Perreault'), (104, 'Benoit Pouliot'), (115, 'Wayne Simmonds'), (135, 'Colin Wilson'), (155, 'Mikkel Boedker'), (165, 'Chris Conner'), (170, 'Joel Perrault'), (173, 'Lauri Korpikoski'), (175, 'Gilbert Brule'), (183, 'Dustin Jeffrey'), (197, 'Nathan Gerbe'), (202, 'Adam Henrique'), (206, 'Jack Skille'), (213, 'T.J. Hensick'), (216, 'Tyler Kennedy')]
+-------------------------------------------------------------------
+Cluster3:
+Goals vs Assists 0.690578897375
+Takeaways v Giveaways 33.8165184352
+Corsi For % 0.418484795181
+Points/game 0.405596540437
+Penalties/game 0.425856281752
+Hits/game 0.855825520319
+[(13, 'Michael Grabner'), (15, 'Dave Bolland'), (18, 'Daniel Winnik'), (27, 'Michael Frolik'), (29, 'Peter Regin'), (33, 'Mike Santorelli'), (39, "Cal O'Reilly"), (58, 'Rob Schremp'), (60, 'Nick Bonino'), (67, 'Jordan Staal'), (72, 'Ryan Shannon'), (76, 'Tyler Bozak'), (77, 'Jeff Skinner'), (98, 'Chris Thorburn'), (118, 'Sean Bergenheim'), (122, 'David Steckel'), (123, "Ryan O'Reilly"), (133, 'Frans Nielsen'), (142, 'Martin Hanzal'), (144, 'T.J. Galiardi'), (149, 'Andrew Cogliano'), (159, 'Mikael Backlund'), (161, 'Philippe Dupuis'), (162, 'Colton Gillies'), (190, 'Daniel Paille'), (192, 'Josh Bailey'), (207, 'Torrey Mitchell'), (209, 'Tom Wandell'), (211, 'Bryan Little'), (212, 'Teddy Purcell')]
+-------------------------------------------------------------------
+Cluster4:
+Goals vs Assists 0.890415878572
+Takeaways v Giveaways 10.7898671385
+Corsi For % 0.407663973804
+Points/game 0.306724025417
+Penalties/game 0.447567304994
+Hits/game 1.23919207735
+[(6, "Matt D'Agostini"), (20, 'Bobby Butler'), (30, 'Jordan Caron'), (40, 'Jacob Josefson'), (41, 'Kyle Brodziak'), (43, 'Dwight King'), (52, 'Petteri Nokelainen'), (59, 'Drayson Bowman'), (61, 'Jiri Tlusty'), (83, 'Mattias Tedenby'), (90, 'Tom Pyatt'), (94, 'Trevor Lewis'), (99, 'Tomas Kopecky'), (101, 'Andreas Nodl'), (102, 'Andrei Loktionov'), (111, 'Derek MacKenzie'), (112, 'Bill Thomas'), (113, 'Colin Fraser'), (114, 'Cory Emmerton'), (124, 'Dana Tyrell'), (131, 'Brandon McMillan'), (132, 'Drew Miller'), (136, 'Sergei Kostitsyn'), (141, 'Marcus Kruger'), (153, 'Dustin Boyd'), (154, 'Brandon Sutter'), (168, 'Luke Adam'), (172, 'Nate Thompson'), (177, 'Jannik Hansen'), (180, 'Zac Dalpe'), (184, 'Shawn Matthias'), (194, 'Blair Jones'), (195, 'Nick Spaling')]
+-------------------------------------------------------------------
+Cluster5:
+Goals vs Assists 0.848212598743
+Takeaways v Giveaways 14.1066639485
+Corsi For % 0.391079177471
+Points/game 0.215770779644
+Penalties/game 1.75844068336
+Hits/game 2.16496586947
+[(5, 'B.J. Crombeen'), (11, 'Ben Eager'), (19, 'Rick Rypien'), (21, 'Mike Blunden'), (42, 'Steve Downie'), (44, 'Tim Jackman'), (48, 'Cody McLeod'), (49, 'Patrick Kaleta'), (79, 'Jared Boll'), (105, 'Matt Martin'), (106, 'Daniel Carcillo'), (110, 'David Clarkson'), (129, 'Jean-Francois Jacques'), (146, 'Zack Stortini'), (147, 'Paul Bissonnette'), (156, 'Cal Clutterbuck'), (160, 'Zack Smith'), (167, 'Colton Orr'), (174, 'Brandon Prust'), (179, 'Ryan White'), (181, 'Mike Brown'), (191, 'Kyle Clifford'), (198, 'Tom Sestito'), (204, 'D.J. King'), (210, 'Derek Dorsett'), (217, 'David Backes')]
+-------------------------------------------------------------------
+Cluster6:
+Goals vs Assists 0.783677604879
+Takeaways v Giveaways 16.2946290436
+Corsi For % 0.421276613274
+Points/game 0.540716729134
+Penalties/game 0.521668734102
+Hits/game 0.967229189645
+[(2, 'T.J. Oshie'), (4, 'Mikhail Grabovski'), (14, 'Patric Hornqvist'), (16, 'David Perron'), (25, 'Blake Wheeler'), (36, 'Lars Eller'), (37, 'Marcus Johansson'), (45, 'Drew Stafford'), (50, 'Claude Giroux'), (53, 'Blake Comeau'), (54, 'Eric Fehr'), (68, 'Kyle Turris'), (73, 'Brandon Dubinsky'), (74, 'Ryan Potulny'), (75, 'Tyler Ennis'), (80, 'Patrik Berglund'), (81, 'Derick Brassard'), (84, 'Niclas Bergfors'), (85, 'Peter Mueller'), (87, 'Anthony Stewart'), (116, 'James van Riemsdyk'), (119, 'Artem Anisimov'), (120, 'Sam Gagner'), (126, 'David Booth'), (127, 'Nick Foligno'), (130, 'Kyle Okposo'), (140, 'Jakub Voracek'), (143, 'Matt Duchene'), (145, 'Andrei Kostitsyn'), (158, 'Matt Halischuk'), (163, 'Ryane Clowe'), (164, 'Valtteri Filppula'), (176, 'Kris Versteeg'), (186, 'Cody Hodgson'), (187, 'Max Pacioretty'), (201, 'James Neal'), (208, 'Marc Pouliot')]
+-------------------------------------------------------------------
