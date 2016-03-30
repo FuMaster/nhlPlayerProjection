@@ -120,7 +120,7 @@ def process_players():
 	return playerData, forwardList, defenseList
 
 if __name__ == '__main__':
-	playerData, fowardList, defenseList = process_players()
+	playerData, forwardList, defenseList = process_players()
 	print len(playerData)
 	print len(forwardList)
 	print len(defenseList)	
