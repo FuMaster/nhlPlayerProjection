@@ -53,6 +53,8 @@ def findPlayers():
 				age = is_number(row['Age'])
 				gamesPlayed = is_number(row['GP'])
 				p = row['Player']
+				#if (gamesPlayed < 20):
+				#	continue
 				if (p in playerDict):
 					playerDict[p] += gamesPlayed
 					playerData[p][year] = row
@@ -89,7 +91,7 @@ def addBasicStats():
 			reader = csv.DictReader(csvfile)
 			for row in reader:
 				player = row['Player']
-				if player in playerData:
+				if player in playerData and year in playerData[player]:
 					tmp = playerData[player][year]
 					for attri in row:
 						if not(attri in tmp):
