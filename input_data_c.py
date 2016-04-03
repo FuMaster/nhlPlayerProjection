@@ -1,7 +1,23 @@
-import nhlDataParser
+import nhlDataParser, csv
 from enum import Enum
 
-testAttributes = ['Player','G','A','PTS','GP', 'HIT', 'BLK', 'CF%', 'PIM', 'TK', 'GV']
+testAttributes = ['G','A','PTS', 'HIT', 'BLK', 'CF%', 'PIM', 'TK', 'GV'] #,\
+clusters = ['Cluster1', 'Cluster2', 'Cluster3', 'Cluster4', 'Cluster5', 'Cluster6', 'Cluster7']
+def getClusterData():
+  ret = {}
+  fname = 'playstyle.csv'
+  with open(fname, 'r') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+      name = row['Player']
+      attr = []
+
+      for c in clusters:
+        attr.append(row[c])
+      ret[name] = attr
+    csvfile.close()
+
+  return ret
 def getPlayerData():
   playerData, forwardList, defenseList = nhlDataParser.process_players()
   trainingSetF, testingSetF = getForwardSets(forwardList)
@@ -12,24 +28,33 @@ def getPlayerData():
 def getSortedData(players):
   pData = []
   tData = []
+  clusterData = getClusterData()
   for player in players:
     count = 0
     tmpList = []
     for year in player:
       if count > 3:
         break
-      if count == 2:
+      if count == 3:
         pData.append(tmpList)
         tmpList = []
+      gamesPlayed = float(player[year]['GP']) 
       for attr in testAttributes:
-        tmpList.append(player[year][attr])
-
+        if attr != 'CF%':
+          tmpList.append(float(player[year][attr])/gamesPlayed)
+        else:
+          tmpList.append(float(player[year][attr])/100.0)
+      clusters = clusterData[player[year]['Player']]
+      if count == 0:
+        for cluster in clusters:
+          tmpList.append(float(cluster))
       count += 1
     tData.append(tmpList)
 
-  for p in tData:
-    pData.append(p)
-  return pData
+  tmp = []
+  tmp.append(pData)
+  tmp.append(tData)
+  return tmp
 def getForwardSets(forwardList):
   trainingSetF = []
   testingSetF = []
@@ -93,7 +118,6 @@ class DataSet(object):
     end = self._index_in_epoch
     return self._stats[start:end], self._labels[start:end]
 
-
 def read_data_sets(one_hot=True):
   class DataSets(object):
     pass
@@ -101,25 +125,22 @@ def read_data_sets(one_hot=True):
   trainSetF, testSetF = getPlayerData()
   #extract data from forwards in their first 2 seasons
   
-
-  labelSize = len(trainSetF)/2
+#  labelSize = len(trainSetF)/2
   
-  train_stats = trainSetF[labelSize:]
-  train_labels = trainSetF[:labelSize]
+  train_stats = trainSetF[0]#[labelSize:]
+  train_labels = trainSetF[1]#[:labelSize]
 
-  test_stats = testSetF[len(testSetF)/2:]
-  test_labels = testSetF[:len(testSetF)/2]
+  test_stats = testSetF[0]#[len(testSetF)/2:]
+  test_labels = testSetF[1]#[:len(testSetF)/2]
 
   '''
   print train_stats[0], train_labels[0]
-  print train_stats[labelSize-1], train_labels[labelSize-1]
+  print train_stats[len(trainSetF[0])-1], train_labels[len(trainSetF[1])-1]
 
   print test_stats[0], test_labels[0]
-  print test_stats[(len(testSetF)/2)-1], test_labels[(len(testSetF)/2)-1]
+  print test_stats[len(testSetF[0])-1], test_labels[len(testSetF[1])-1]
   '''
   data_sets.train = DataSet(train_stats, train_labels)
   data_sets.test = DataSet(test_stats, test_labels)
 
   return data_sets
-
-read_data_sets()
